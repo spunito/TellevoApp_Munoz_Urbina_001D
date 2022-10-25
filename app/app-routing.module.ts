@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { IngresadoGuard } from './ingresado.guard';
+import { NoIngresadoGuard } from './no-ingresado.guard';
 
 const routes: Routes = [
-  
   {
     path: '',
     redirectTo: 'inicio',
@@ -10,23 +11,48 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule),
+    canActivate: [IngresadoGuard]
   },
   {
-    path: 'alert',
-    loadChildren: () => import('./pages/alert/alert.module').then( m => m.AlertPageModule)
+    path: 'noticias',
+    loadChildren: () => import('./pages/noticias/noticias.module').then( m => m.NoticiasPageModule),
+    canActivate: [IngresadoGuard]
   },
   {
-    path: 'action-sheet',
-    loadChildren: () => import('./pages/action-sheet/action-sheet.module').then( m => m.ActionSheetPageModule)
+    path: 'comentarios',
+    loadChildren: () => import('./pages/comentarios/comentarios.module').then( m => m.ComentariosPageModule),
+    canActivate: [IngresadoGuard]
   },
   {
-    path: 'card',
-    loadChildren: () => import('./pages/card/card.module').then( m => m.CardPageModule)
+    path: 'datos',
+    loadChildren: () => import('./pages/datos/datos.module').then( m => m.DatosPageModule),
+    canActivate: [IngresadoGuard]
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
+    canActivate: [NoIngresadoGuard]
+  },
+  {
+    path: 'registro',
+    loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule),
+    canActivate: [NoIngresadoGuard]
+  },
+  {
+    path: 'conduc',
+    loadChildren: () => import('./pages/conduc/conduc.module').then( m => m.ConducPageModule),
+    canActivate: [IngresadoGuard]
   },
   {
     path: 'somos',
-    loadChildren: () => import('./pages/somos/somos.module').then( m => m.SomosPageModule)
+    loadChildren: () => import('./pages/somos/somos.module').then( m => m.SomosPageModule),
+    canActivate: [IngresadoGuard]
+  },
+  {
+    path: 'nada',
+    loadChildren: () => import('./pages/nada/nada.module').then( m => m.NadaPageModule),
+    canActivate: [IngresadoGuard]
   },
 ];
 

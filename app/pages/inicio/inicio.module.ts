@@ -7,13 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { InicioPageRoutingModule } from './inicio-routing.module';
 
 import { InicioPage } from './inicio.page';
-
+import {GoogleMapsModule} from '@angular/google-maps';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InicioPageRoutingModule
+    InicioPageRoutingModule,
+    GoogleMapsModule
   ],
   declarations: [InicioPage]
 })

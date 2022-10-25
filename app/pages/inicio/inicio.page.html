@@ -1,26 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()" color="primary">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+   <ion-title color="primary">TellevoAPP</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-
-<ion-content >
- <br><br>
-  <icon-card>
-    <img src="assets/icon/tellevo.jpeg" class="ion-padding">
-  </icon-card>
-  <br><br><br><br>
-  <form>
-    <ion-item>
-      <ion-label>Email:</ion-label>
-      <ion-input type="text" placeholder="Ingrese mail"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Contraseña:</ion-label>
-      <ion-input type="password" placeholder="Ingrese contraseña"></ion-input>
-    </ion-item>
-    
-  </form>
-  <ion-button href="/card">Ingresar</ion-button>
-  <ion-button href="/action-sheet">¿No tienes cuenta?</ion-button>
-
- 
+<ion-content>
+  <ion-item color="dark">
+    <ion-input placeholder="¿A donde vas?"></ion-input>
+    <ion-icon name="search" slot="start"></ion-icon>
+  </ion-item>
   
+  <ion-list color="dark">
+    <ion-item color="dark" *ngFor="let c of componentes" [routerLink]="c.redirecTo" detail="true">
+      <ion-icon [name]="c.icon" slot="start" color="primary"></ion-icon>
+      {{ c.name }}
+    </ion-item>
+  </ion-list>
+    <hr>
 
+    <h1 style="text-align:center;">Tu mapa</h1>
+  <ion-card>
+  <google-map width="350px" height="200px"[center]="position">
+    <map-marker
+    [position]="position"
+    [title]="title">
+  </map-marker>
+</google-map>
+</ion-card>
 </ion-content>

@@ -1,9 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>nada</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-app>
+<ion-menu contentId="main2" menuId="second" side="start" swipeGesture="false">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-content>
+  <ion-content>
+     <ion-list >
+        <ion-menu-toggle *ngFor="let cc of componentes2">
+            <ion-item color="dark" [routerLink]="cc.redirecTo" detail=true>
+              <ion-icon slot="start" [name]="cc.icon" color="primary"></ion-icon>
+              {{cc.name}}
+            </ion-item>
+        </ion-menu-toggle>
 
-</ion-content>
+        <ion-menu-toggle (click) ="Logout()">
+          <ion-item color="dark"detail=true>
+            <ion-icon slot="start" name="close-circle" color="primary"></ion-icon>
+            Logout
+          </ion-item>
+      </ion-menu-toggle>
+      </ion-list> 
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main2"></ion-router-outlet>
+</ion-app>

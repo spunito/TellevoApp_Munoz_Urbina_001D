@@ -27,6 +27,7 @@ export class RegistroPage implements OnInit {
                   this.formularioRegistro = this.fb.group({
                       'nombre': new FormControl("", Validators.required),
                       'correo': new FormControl("", Validators.required),
+                      'tipo': new FormControl("", Validators.required),
                       'password': new FormControl("", Validators.required),
                       'confirmaPass': new FormControl("", Validators.required)
             });
@@ -52,6 +53,30 @@ export class RegistroPage implements OnInit {
 
      this.newUsuario.nomUsuario = form.nombre,
      this.newUsuario.correoUsuario = form.correo;
+     
+     //Tipo de usuario validacion
+     if(form.tipo != "Conductor" && form.tipo != "Pasajero"
+     && form.tipo != "pasajero" && form.tipo != "conductor" && form.tipo != "p"
+     && form.tipo != "c" )
+     {
+      this.formularioRegistro.invalid;
+      const alerta = await this.alertController.create({
+        header: 'Tipo Incorrecto',
+        message: 'Debe poner si es Conductor o Pasajero',
+        buttons: ['Aceptar'],
+      });
+  
+      await alerta.present();
+      return;
+        
+      }
+      else
+      { 
+        this.newUsuario.tipoUsuario = form.tipo;
+      }
+     
+
+      //Contraseña Validacion
      if(form.password != form.confirmaPass)
      {
       this.formularioRegistro.invalid;
@@ -76,6 +101,8 @@ export class RegistroPage implements OnInit {
        this.showToast('Registrado correctamente.');  
      }); 
  }
+
+
 
  async showToast(msg){
   const toast = await this.toastController.create({

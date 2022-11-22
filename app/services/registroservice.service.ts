@@ -4,6 +4,7 @@ import { Storage }  from '@ionic/storage';
 export interface Usuario{
   nomUsuario: string; 
   correoUsuario: string; 
+  tipoUsuario: string;
   passUsuario: string;
   repassUsuario: string;
 }

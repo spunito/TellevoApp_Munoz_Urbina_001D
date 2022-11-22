@@ -54,6 +54,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/nada/nada.module').then( m => m.NadaPageModule),
     canActivate: [IngresadoGuard]
   },
+  {
+    path: 'inicio-c',
+    loadChildren: () => import('./pages/inicio-c/inicio-c.module').then( m => m.InicioCPageModule),
+    canActivate: [IngresadoGuard]
+  },
+  {
+    path: 'historial',
+    loadChildren: () => import('./pages/historial/historial.module').then( m => m.HistorialPageModule),
+    canActivate: [IngresadoGuard]
+  },
 ];
 
 @NgModule({

@@ -1,11 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="mostrarMenu()">
-        <ion-icon slot="start" name="menu-outline" color="primary"></ion-icon>
-      </ion-button>
+      <ion-back-button defaultHref="inicio-c"></ion-back-button>
     </ion-buttons>
-    <ion-title>Mascotas</ion-title>
+    <ion-title>Vehiculo</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,23 +12,23 @@
 <form #formulario="ngForm" (ngSubmit)="addDatos()">
   
   <ion-item>
-    <ion-label position="fixed">Mascota: </ion-label>
-    <ion-input type="text" placeholder="Nombre.." name="nomMascota" [(ngModel)]="newDato.nomMascota" required></ion-input>
+    <ion-label position="fixed">Marca: </ion-label>
+    <ion-input type="text" placeholder="Marca..." name="nomMascota" [(ngModel)]="newDato.nomMascota" required></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="fixed">Raza: </ion-label>
-    <ion-input type="text" placeholder="Raza.." name="razaMascota" [(ngModel)]="newDato.razaMascota" required></ion-input>
+    <ion-label position="fixed">Modelo: </ion-label>
+    <ion-input type="text" placeholder="Modelo..." name="razaMascota" [(ngModel)]="newDato.razaMascota" required></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="fixed">Edad: </ion-label>
-    <ion-input type="number" placeholder="Edad.." name="edadMascota" [(ngModel)]="newDato.edadMascota" required></ion-input>
+    <ion-label position="fixed">Cantidad asientos: </ion-label>
+    <ion-input type="number" placeholder="Asientos..." name="edadMascota" [(ngModel)]="newDato.edadMascota" required></ion-input>
   </ion-item>
  
   <ion-button [disabled] ="formulario.invalid" type="submit"
          expand="full" fill="outline" shape="round">
-    Agregar Mascotas
+    Agregar Vehiculo
   </ion-button>
 </form>
 

@@ -8,6 +8,12 @@ interface Componente{
   redirecTo:string;
 }
 
+interface Componente2{
+  icon:string;
+  name:string;
+  redirecTo:string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -32,31 +38,18 @@ export class AppComponent {
       icon: 'speedometer-sharp',
       name: 'Conductores',
       redirecTo: '/conduc'
-    }
-
-      
-  
-    // {
-    //   icon: 'wifi-outline',
-    //   name: 'Inicio',
-    //   redirecTo: '/inicio',
-    // },
-    // {
-    //   icon: 'eye-outline',
-    //   name: 'Noticias',
-    //   redirecTo:'/noticias',
-    // },
-    // {
-    //   icon: 'diamond-outline',
-    //   name: 'Comentarios',
-    //   redirecTo:'/comentarios',
-    // }, 
-    // {
-    //   icon: 'person-outline',
-    //   name: 'Mascotas',
-    //   redirecTo:'/datos',
-    // },
+    },
   ];
+
+  componentes2: Componente2[] = [ 
+    {
+      icon: 'car-sharp',
+      name: 'Inicio',
+      redirecTo: '/inicio-c'
+    },
+     
+  ];
+
   title = 'Como usar el Componente Google Maps de Angular 9'; 
  
     // Configuración de Google Maps 

@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AlertPageRoutingModule } from './alert-routing.module';
+import { HistorialPageRoutingModule } from './historial-routing.module';
 
-import { AlertPage } from './alert.page';
+import { HistorialPage } from './historial.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AlertPageRoutingModule
+    HistorialPageRoutingModule
   ],
-  declarations: [AlertPage]
+  declarations: [HistorialPage]
 })
-export class AlertPageModule {}
+export class HistorialPageModule {}

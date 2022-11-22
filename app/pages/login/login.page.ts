@@ -48,12 +48,21 @@ export class LoginPage implements OnInit {
       }
 
       for (let obj of this.usuarios){
-        if (obj.correoUsuario == f.correo && obj.passUsuario==f.password){
+        if (obj.correoUsuario == f.correo && obj.passUsuario==f.password && obj.tipoUsuario == "pasajero"){
             a=1;
             console.log('ingresado');
             localStorage.setItem('ingresado', 'true');
-            this.showToast('Bienvenido: ' + obj.nomUsuario + '  😜');  
+            this.showToast('Bienvenido: ' + obj.nomUsuario +" ingresaste como " +obj.tipoUsuario );  
             this.navController.navigateRoot('inicio');
+        }
+      }
+      for (let obj of this.usuarios){
+        if (obj.correoUsuario == f.correo && obj.passUsuario==f.password && obj.tipoUsuario == "conductor"){
+            a=1;
+            console.log('ingresado');
+            localStorage.setItem('ingresado', 'true');
+            this.showToast('Bienvenido: ' + obj.nomUsuario +" ingresaste como " +obj.tipoUsuario );  
+            this.navController.navigateRoot('inicio-c');
         }
       }
     console.log(a);

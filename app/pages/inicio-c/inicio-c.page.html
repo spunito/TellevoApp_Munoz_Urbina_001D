@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+   <ion-title color="primary">TellevoAPP</ion-title>
+   
+   <ion-toggle slot="end" [enableOnOffLabels]="true">Deseas</ion-toggle>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<h1 style="text-align: center;">Pasajeros Cercanos</h1>
+<ion-card>
+  <google-map width="350px" height="200px"[center]="position">
+    <map-marker
+    [position]="position"
+    [title]="title">
+  </map-marker>
+</google-map>
+</ion-card>
+<ion-button [routerLink]="['/datos']" expand="full">Tu vehiculo</ion-button>
+<ion-button [routerLink]="['/historial']" expand="full">Historial de viajes</ion-button>
+<ion-button color="danger" expand="full" (click) ="Logout()">Salir</ion-button>
+
+</ion-content>

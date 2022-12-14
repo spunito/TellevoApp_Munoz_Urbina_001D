@@ -20,5 +20,13 @@ export interface RespuestaTopHeadlines {
     name: string;
   }
 
+export default interface Place {
+
+  id?:string;
+  name:string;
+  auto:string;
+  cantidadasid:string;
+  parada:string;
+}
 
    

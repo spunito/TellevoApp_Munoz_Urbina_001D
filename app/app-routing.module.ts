@@ -64,6 +64,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/historial/historial.module').then( m => m.HistorialPageModule),
     canActivate: [IngresadoGuard]
   },
+  
 ];
 
 @NgModule({

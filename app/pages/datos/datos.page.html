@@ -1,62 +1,32 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="inicio-c"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Vehiculo</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+<ion-list>
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    
+    
+    <ion-item>
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+    </ion-item>
+    
+    <ion-item>
+        <label class="form-label">Auto</label>
+        <input type="text" class="form-control" formControlName="auto">
+    </ion-item>
+    
+    <ion-item>
+        <label class="form-label">Cantidad Asientos</label>
+        <input type="text" class="form-control" formControlName="cantidadasid">
+    </ion-item>
+    
+    <ion-item>
+        <label class="form-label">Parada</label>
+        <input type="text" class="form-control" formControlName="parada">
+    </ion-item>
 
-<form #formulario="ngForm" (ngSubmit)="addDatos()">
-  
-  <ion-item>
-    <ion-label position="fixed">Marca: </ion-label>
-    <ion-input type="text" placeholder="Marca..." name="nomMascota" [(ngModel)]="newDato.nomMascota" required></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="fixed">Modelo: </ion-label>
-    <ion-input type="text" placeholder="Modelo..." name="razaMascota" [(ngModel)]="newDato.razaMascota" required></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="fixed">Cantidad asientos: </ion-label>
-    <ion-input type="number" placeholder="Asientos..." name="edadMascota" [(ngModel)]="newDato.edadMascota" required></ion-input>
-  </ion-item>
- 
-  <ion-button [disabled] ="formulario.invalid" type="submit"
-         expand="full" fill="outline" shape="round">
-    Agregar Vehiculo
-  </ion-button>
-</form>
-
-  <ion-list #myList>
-    <ion-list-header>
-      <ion-label>Mis Datos</ion-label>
-    </ion-list-header>
-
-    <ion-list>
-      <ion-item-sliding *ngFor="let dato of datos">
-        <ion-item>
-          <ion-label text-wrap> 
-            <h3>{{dato.nomMascota}}</h3>
-            <ion-text color="secondary">
-              <p>{{dato.razaMascota}}</p>
-            </ion-text>
-            <p>{{dato.modified | date: 'short'}}</p>
-          </ion-label>
-        </ion-item>
-        <ion-item-options side="end">
-          <ion-item-option color="secondary" (click)="updateDatos(dato)">Actualizar</ion-item-option>
-         <ion-item-option color="danger" (click)="deleteDatos(dato)">Eliminar</ion-item-option> 
-        </ion-item-options>
-      </ion-item-sliding>
-    </ion-list>
-  </ion-list>
-
-
-
+    <input type="submit" value="Enviar">
+    
+    </form>
+</ion-list>
 
 </ion-content>

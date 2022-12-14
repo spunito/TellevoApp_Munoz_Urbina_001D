@@ -2,7 +2,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { ServicedatosService, Datos } from '../../services/servicedatos.service';
 import { Platform, ToastController, IonList } from '@ionic/angular';
-
+import { PlacesService } from 'src/app/services/places.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Injectable } from '@angular/core';
+ 
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-datos',
   templateUrl: './datos.page.html',
@@ -11,19 +17,37 @@ import { Platform, ToastController, IonList } from '@ionic/angular';
 export class DatosPage implements OnInit {
 
   datos : Datos[] = [];
+  formulario: FormGroup;
   newDato: Datos = <Datos>{};
   @ViewChild('myList')myList :IonList; 
 
   constructor(private menuController: MenuController, 
               private serviceDatos: ServicedatosService, 
               private plt: Platform, 
-              private toastController: ToastController) {
-                this.plt.ready().then(()=>{ 
-                  this.loadDatos();
-                })
+              private toastController: ToastController,
+              private placesService :PlacesService ) {
+                
+                  
+                  this.formulario = new FormGroup({
+                    name: new FormControl(),
+                    auto: new FormControl(),
+                    cantidadasid: new FormControl(),
+                    parada: new FormControl(),
+                    
+                  });
+                  
+                
                }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.placesService.getPlaces().subscribe(places => {
+      console.log(places);
+    })
+  }
+  async onSubmit() {
+    console.log(this.formulario.value)
+    const response = await this.placesService.addPlace(this.formulario.value);
+    console.log(response);
   }
 
   mostrarMenu(){
